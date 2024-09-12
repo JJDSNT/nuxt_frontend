@@ -13,11 +13,12 @@
 
 
     <hr />
-
+    <MetricsCards />
   </div>
 </template>
 
 <script setup lang="ts">
 import EixoButton from '~/components/EixosButtonCard.vue';
 import DropdownCombo from '~/components/EstadoCidadeSelect.vue';
+import MetricsCards from '~/components/MetricsCards.vue';
 </script>

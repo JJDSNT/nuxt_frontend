@@ -1,10 +1,8 @@
 <template>
   <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-    <button v-for="eixo in eixos" :key="eixo.id"
-      :class="[eixo.cor, 'text-black', 'border', 'rounded-lg', 'p-4', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-2']"
+    <button v-for="eixo in eixos" :key="eixo.id" :style="{ backgroundColor: eixo.cor }"
+      :class="['text-black', 'border', 'rounded-lg', 'p-4', 'flex', 'flex-col', 'items-center', 'justify-center', 'space-y-2']"
       @click="handleEixoSelecionado(eixo.id)">
-      <!-- Verificar se os dados estão corretos -->
-      <div>{{ eixo.nomeLegivel }}</div>
       <v-icon :name="eixo.icon" />
       <span>{{ eixo.nomeLegivel }}</span>
     </button>

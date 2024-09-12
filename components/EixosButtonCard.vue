@@ -11,25 +11,24 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useNuxtApp } from '#app'; // Se você estiver usando Nuxt
+import { useNuxtApp } from '#app'; // Para acessar o cliente HTTP configurado no Nuxt
 
 const eixos = ref([]); // Armazena os eixos
 
 // Função para buscar eixos do backend
 const fetchEixos = async () => {
-  const { $axios } = useNuxtApp(); // Usar o axios configurado no Nuxt
+  const { $httpClient } = useNuxtApp(); // Usar o httpClient configurado no Nuxt
   try {
-    const response = await $axios.get('/eixos/caracteristicas');
-    console.log(response.data);
-    eixos.value = response.data;
+    const response = await $httpClient.get('/eixos/caracteristicas');
+    eixos.value = response.data; // Armazena os dados retornados
   } catch (error) {
-    console.error('Erro ao buscar eixos:', error);
+    console.error('Erro ao buscar eixos:', error); // Loga o erro no console
   }
 };
 
 // Função para tratar seleção de eixos
 const handleEixoSelecionado = (id) => {
-  console.log('Eixo selecionado:', id);
+  console.log('Eixo selecionado:', id); // Lida com a seleção do eixo
 };
 
 // Carregar eixos ao montar o componente

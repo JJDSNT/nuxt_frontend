@@ -10,9 +10,7 @@
       </nav>
     </header>
     <NuxtPage />
-    <footer>
-      <p>&copy; 2024 Minha Aplicação</p>
-    </footer>
+    <Footer />>
   </div>
 </template>
 

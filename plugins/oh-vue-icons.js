@@ -9,6 +9,8 @@ import {
   FaQuestion,
   FaUserGraduate,
   FaShieldAlt,
+  FaGithub,
+  FaLinkedin,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -20,7 +22,9 @@ addIcons(
   FaMoneyBillWave,
   FaQuestion,
   FaUserGraduate,
-  FaShieldAlt
+  FaShieldAlt,
+  FaGithub,
+  FaLinkedin,
 );
 
 export default defineNuxtPlugin((nuxtApp) => {

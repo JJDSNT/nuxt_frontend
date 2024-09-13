@@ -9,6 +9,30 @@ Este repositório contém o código do frontend do ObservaTudo, uma aplicação 
 - **Axios**: Biblioteca para requisições HTTP.
 - **SonarQube**: Ferramenta para análise estática de código, medindo a qualidade do código, cobertura de testes, segurança e mais.
 
+## SonarQube
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+&nbsp;
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=JJDSNT_nuxt_frontend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=JJDSNT_nuxt_frontend)
+
 ## Estrutura do Projeto
 
 - `components/`: Componentes Vue que compõem as interfaces do usuário.

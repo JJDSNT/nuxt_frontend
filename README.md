@@ -1,6 +1,10 @@
 # ObservaTudo - Frontend
 
-Este repositório contém o código do frontend do [ObservaTudo](https://github.com/JJDSNT/java_backend), uma aplicação que monitora indicadores através de painéis interativos. O frontend é desenvolvido em [Nuxt.js](https://nuxtjs.org/) e utiliza o [Tailwind CSS](https://tailwindcss.com/) para estilização. O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir a qualidade e padrões de código.
+Este repositório contém o código do frontend do [ObservaTudo](https://github.com/JJDSNT/java_backend), uma aplicação que monitora indicadores através de painéis interativos.
+
+O frontend é desenvolvido em [Nuxt.js](https://nuxtjs.org/) e utiliza o [Tailwind CSS](https://tailwindcss.com/) para estilização.
+
+O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir a qualidade e padrões de código.
 
 ## Tecnologias Utilizadas
 
@@ -38,7 +42,7 @@ Este repositório contém o código do frontend do [ObservaTudo](https://github.
 - `components/`: Componentes Vue que compõem as interfaces do usuário.
 - `pages/`: Páginas que definem as rotas da aplicação.
 - `plugins/axios.js`: Configuração do plugin Axios para chamadas HTTP.
-- `store/`: Gerenciamento de estado global com Vuex.
+- `store/`: Gerenciamento de estado global com Pinia.
 - `assets/`: Arquivos estáticos como imagens e arquivos de estilo.
 - `layouts/`: Layouts da aplicação.
 - `middleware/`: Middlewares de autenticação e proteção de rotas.
@@ -55,11 +59,11 @@ Este repositório contém o código do frontend do [ObservaTudo](https://github.
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/observatudo-frontend.git
+git clone https://github.com/JJDSNT/nuxt_frontend.git
 ```
 &&
 ```bash
-cd observatudo-frontend
+cd nuxt_frontend
 ```
 2. Instale as dependências:
 
@@ -93,21 +97,28 @@ O frontend estará disponível em http://localhost:3000.
 /dashboard: Painel principal com a visão geral dos indicadores.
 
 /pesquisa: Página para pesquisar indicadores por eixo, fonte ou nome.
-Estilização
+
+## Estilização
 
 Este projeto usa Tailwind CSS para estilização.
 
 Caso queira personalizar o design, você pode ajustar o arquivo tailwind.config.js e os estilos no diretório assets/css.
 
-Contribuições
+## Contribuições
 Faça um fork do repositório.
 
-Crie uma branch com sua feature ou correção de bug: git checkout -b minha-feature.
-
-Faça o commit das suas mudanças: git commit -m 'Adiciona nova feature'.
-
-Envie para a branch principal: git push origin minha-feature.
-
+Crie uma branch com sua feature ou correção de bug:
+```bash
+ git checkout -b minha-feature.
+```
+Faça o commit das suas mudanças:
+```bash
+git commit -m 'Adiciona nova feature'.
+```
+Envie para a branch principal:
+```bash
+git push origin minha-feature.
+```
 Abra um pull request.
 
 ## Licença

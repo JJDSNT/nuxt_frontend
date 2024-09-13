@@ -1,6 +1,5 @@
 <template>
     <header>
-        <h1>Minha Aplicação</h1>
         <Navbar />
     </header>
 </template>

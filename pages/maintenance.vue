@@ -5,10 +5,13 @@
     </div>
 </template>
 
-<script>
-export default {
-    // Defina uma página simples de manutenção
-}
+<script setup>
+useHead({
+    title: 'ObservaTudo em manutenção',
+    meta: [
+        { name: 'description', content: 'Página de manutenção' },
+    ],
+})
 </script>
 
 <style scoped>

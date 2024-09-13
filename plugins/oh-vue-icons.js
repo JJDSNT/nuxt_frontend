@@ -10,7 +10,7 @@ import {
   FaUserGraduate,
   FaShieldAlt,
   FaGithub,
-  FaLinkedin,
+  FaLinkedin
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -24,7 +24,7 @@ addIcons(
   FaUserGraduate,
   FaShieldAlt,
   FaGithub,
-  FaLinkedin,
+  FaLinkedin
 );
 
 export default defineNuxtPlugin((nuxtApp) => {

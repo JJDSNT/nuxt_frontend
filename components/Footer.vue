@@ -16,5 +16,9 @@
 </template>
 
 <script setup lang="ts">
+import { addIcons } from 'oh-vue-icons';
+import { FaGithub } from 'oh-vue-icons/icons';
 
+// Registre o ícone globalmente
+addIcons(FaGithub);
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="navbar bg-primary text-primary-content">
-            <button class="btn btn-ghost text-xl">daisyUI</button>
+            <button class="btn btn-ghost text-xl">ObservaTudo</button>
             <nav>
                 <NuxtLink to="/">Home</NuxtLink>
                 <NuxtLink to="/indicadores">Pesquisar</NuxtLink>

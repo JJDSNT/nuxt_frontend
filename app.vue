@@ -1,24 +1,13 @@
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <header>
-      <h1>Minha Aplicação</h1>
-      <!-- Links de navegação -->
-      <nav>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/indicadores">Pesquisar Indicadores</NuxtLink>
-      </nav>
-    </header>
+    <Header />
     <NuxtPage />
-    <Footer />>
+    <Footer />
   </div>
 </template>
 
-<script lang="ts" setup>
-import EstadoCidadeSelect from '~/components/EstadoCidadeSelect.vue';
-
-// Não é necessário usar export default com script setup
-onMounted(() => {
-  console.log(new Date(2019, 2, 2, 11.2));
-});
+<script setup>
+import Header from '~/components/Header.vue';
+import Footer from '~/components/Footer.vue';
 </script>

@@ -87,11 +87,6 @@ const selectedEixoObj = computed(() => {
   return null; // Retornar null se não houver eixos disponíveis ou selecionados
 });
 
-// Observa mudanças no eixo selecionado para depuração
-watch(selectedEixo, (newValue, oldValue) => {
-  console.log('Eixo selecionado mudou de', oldValue, 'para', newValue);
-});
-
 // Carrega os indicadores ao montar o componente
 onMounted(() => {
   console.log('Componente montado, iniciando busca de indicadores.');

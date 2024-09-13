@@ -1,6 +1,6 @@
 # ObservaTudo - Frontend
 
-Este repositório contém o código do frontend do ObservaTudo, uma aplicação que monitora indicadores através de painéis interativos. O frontend é desenvolvido em [Nuxt.js](https://nuxtjs.org/) e utiliza o [Tailwind CSS](https://tailwindcss.com/) para estilização. O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir a qualidade e padrões de código.
+Este repositório contém o código do frontend do [ObservaTudo](https://github.com/JJDSNT/java_backend), uma aplicação que monitora indicadores através de painéis interativos. O frontend é desenvolvido em [Nuxt.js](https://nuxtjs.org/) e utiliza o [Tailwind CSS](https://tailwindcss.com/) para estilização. O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir a qualidade e padrões de código.
 
 ## Tecnologias Utilizadas
 
@@ -57,9 +57,9 @@ Este repositório contém o código do frontend do ObservaTudo, uma aplicação 
 ```bash
 git clone https://github.com/seu-usuario/observatudo-frontend.git
 ```
-
+&&
 ```bash
-   cd observatudo-frontend
+cd observatudo-frontend
 ```
 2. Instale as dependências:
 

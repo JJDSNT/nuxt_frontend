@@ -30,11 +30,13 @@ Este repositório contém o código do frontend do ObservaTudo, uma aplicação 
 
 1. Clone o repositório:
 
-   ```bash
-   git clone https://github.com/seu-usuario/observatudo-frontend.git
-   cd observatudo-frontend
+```bash
+git clone https://github.com/seu-usuario/observatudo-frontend.git
 ```
 
+```bash
+   cd observatudo-frontend
+```
 2. Instale as dependências:
 
 ```bash
@@ -44,22 +46,17 @@ ou
 ```bash
 yarn install
 ```
-
-Crie um arquivo .env com as seguintes variáveis de ambiente:
+3. Crie um arquivo .env com as seguintes variáveis de ambiente:
 
 ```bash
 API_BASE_URL=http://localhost:8080/api
 ```
 
-Inicie o servidor de desenvolvimento:
-
-
+4. Inicie o servidor de desenvolvimento:
 ```bash
 npm run dev
 ```
-
 ou
-
 ```bash
 yarn dev
 ```
@@ -68,17 +65,28 @@ O frontend estará disponível em http://localhost:3000.
 
 
 
-Estrutura das Páginas
+## Estrutura das Páginas
 /dashboard: Painel principal com a visão geral dos indicadores.
+
 /pesquisa: Página para pesquisar indicadores por eixo, fonte ou nome.
 Estilização
-Este projeto usa Tailwind CSS para estilização. Caso queira personalizar o design, você pode ajustar o arquivo tailwind.config.js e os estilos no diretório assets/css.
+
+Este projeto usa Tailwind CSS para estilização.
+
+Caso queira personalizar o design, você pode ajustar o arquivo tailwind.config.js e os estilos no diretório assets/css.
 
 Contribuições
 Faça um fork do repositório.
+
 Crie uma branch com sua feature ou correção de bug: git checkout -b minha-feature.
+
 Faça o commit das suas mudanças: git commit -m 'Adiciona nova feature'.
+
 Envie para a branch principal: git push origin minha-feature.
+
 Abra um pull request.
-Licença
-Este projeto está licenciado sob os termos da licença MIT. Consulte o arquivo LICENSE para mais informações.
+
+## Licença
+Este projeto está licenciado sob os termos da licença MIT.
+
+Consulte o arquivo LICENSE para mais informações.

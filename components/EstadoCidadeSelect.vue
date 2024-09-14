@@ -4,14 +4,14 @@
     <div class="flex-1">
       <select v-model="estadoSelecionadoWatcher" class="p-2 border border-gray-300 rounded-md inline-block min-w-0">
         <option disabled value="">Selecione um estado ...</option>
-        <option v-for="estado in estados" :key="estado.codigo" :value="estado.codigo">{{ estado.sigla }}</option>
+        <option v-for="estado in estados" :key="estado.codigo" :value="estado">{{ estado.sigla }}</option>
       </select>
     </div>
 
     <div class="flex-1">
       <select v-model="cidadeSelecionadaWatcher" class="p-2 border border-gray-300 rounded-md inline-block min-w-0">
         <option disabled value="">Selecione uma cidade ...</option>
-        <option v-for="cidade in cidadesFiltradas" :key="cidade.codigo" :value="cidade.codigo">{{ cidade.nome }}</option>
+        <option v-for="cidade in cidadesFiltradas" :key="cidade.codigo" :value="cidade">{{ cidade.nome }}</option>
       </select>
     </div>
   </div>
@@ -35,6 +35,7 @@ interface Estado {
   codigo: number;
   nome: string;
   sigla: string;
+  pais: { codigo: number; nome: string };
   cidades: Cidade[];
 }
 
@@ -44,16 +45,17 @@ const infoStore = useInfoStore();
 // Computed properties para estado e cidade selecionados no store
 const estadoSelecionadoWatcher = computed({
   get: () => infoStore.estadoSelecionado || '',
-  set: (codigo: number) => {
-    infoStore.setEstado(codigo); // Armazena apenas o código do estado
+  set: (estado: Estado) => {
+    infoStore.setEstado(estado); // Armazena o objeto completo do estado
+    infoStore.setPais(estado.pais); // Usa o país associado ao estado
     atualizarCidades(); // Atualiza as cidades quando o estado é selecionado
   }
 });
 
 const cidadeSelecionadaWatcher = computed({
   get: () => infoStore.cidadeSelecionada || '',
-  set: (codigoCidade: number) => {
-    infoStore.setCidade(codigoCidade); // Armazena apenas o código da cidade
+  set: (cidade: Cidade) => {
+    infoStore.setCidade(cidade); // Armazena o objeto completo da cidade
   }
 });
 
@@ -87,11 +89,11 @@ async function carregarDados() {
 
 // Função para atualizar as cidades com base no estado selecionado
 function atualizarCidades() {
-  const estadoSelecionado = estados.value.find(estado => estado.codigo === infoStore.estadoSelecionado);
+  const estadoSelecionado = infoStore.estadoSelecionado;
   if (estadoSelecionado) {
     cidadesFiltradas.value = estadoSelecionado.cidades || [];
     const cidadeCapital = estadoSelecionado.cidades.find(cidade => cidade.capital);
-    infoStore.setCidade(cidadeCapital?.codigo || cidadesFiltradas.value[0]?.codigo || null);
+    infoStore.setCidade(cidadeCapital || cidadesFiltradas.value[0] || null);
   } else {
     cidadesFiltradas.value = [];
     infoStore.setCidade(null); // Reseta a cidade se nenhum estado for selecionado
@@ -100,14 +102,14 @@ function atualizarCidades() {
 
 // Sincronizar dados com a store
 function sincronizarDadosComStore() {
-  const estadoSelecionado = estados.value.find(e => e.codigo === infoStore.estadoSelecionado);
+  const estadoSelecionado = infoStore.estadoSelecionado;
   if (estadoSelecionado) {
     atualizarCidades();
   }
 
-  const cidadeSelecionada = cidadesFiltradas.value.find(c => c.codigo === infoStore.cidadeSelecionada);
+  const cidadeSelecionada = cidadesFiltradas.value.find(c => c.codigo === infoStore.cidadeSelecionada?.codigo);
   if (!cidadeSelecionada && cidadesFiltradas.value.length > 0) {
-    infoStore.setCidade(cidadesFiltradas.value[0].codigo); // Define a primeira cidade se nenhuma estiver selecionada
+    infoStore.setCidade(cidadesFiltradas.value[0]); // Define a primeira cidade se nenhuma estiver selecionada
   }
 }
 </script>

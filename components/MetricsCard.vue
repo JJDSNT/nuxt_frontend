@@ -1,55 +1,89 @@
 <template>
-    <div class="w-full">
-        <div class="bg-white rounded-lg shadow-lg p-4">
-            <template v-if="indicador && indicador.nome">
-                <h3 class="text-xl font-semibold text-gray-800">{{ indicador.nome }}</h3>
-                <p class="text-sm text-gray-600">{{ indicador.descricao }}</p>
-                <template v-if="selectedLocalidade !== null">
-                    <ul>
-                        <li v-for="valor in sortedValores" :key="valor.id">
-                            Data: {{ formatDate(valor.data) }}, Valor: {{ valor.valor }}
-                        </li>
-                    </ul>
-                </template>
-                <p v-else>
-                    <b>Selecione uma localidade para ver os valores do indicador.</b>
-                </p>
-            </template>
-            <template v-else>
-                <div>
-                    <p class="text-red-600">Dados do indicador não disponíveis</p>
-                    <pre>{{ JSON.stringify(indicador, null, 2) }}</pre>
-                </div>
-            </template>
-        </div>
-    </div>
+  <div class="metrics-card bg-white rounded-lg shadow-lg p-4">
+    <!-- Verifica se o nome do indicador e os valores estão disponíveis -->
+    <template v-if="indicador && indicador.nomeIndicador && indicador.valores && indicador.valores.length > 0">
+      <h3 class="text-xl font-semibold text-gray-800">{{ indicador.nomeIndicador }}</h3>
+      <p class="text-sm text-gray-600">Localidade: {{ selectedLocalidade }}</p>
+
+      <!-- Gráfico dos valores do indicador -->
+      <LineChart :chart-data="chartData" :chart-options="chartOptions" />
+
+      <!-- Exibe valores em lista como fallback -->
+      <ul>
+        <li v-for="valor in indicador.valores" :key="valor.data">
+          Data: {{ formatDate(valor.data) }}, Valor: {{ valor.valor }}
+        </li>
+      </ul>
+    </template>
+    <template v-else>
+      <!-- Mensagem de dados não disponíveis -->
+      <p class="text-red-600">Dados do indicador não disponíveis</p>
+      <pre>{{ JSON.stringify(indicador, null, 2) }}</pre>
+    </template>
+  </div>
 </template>
 
-<script>
-export default {
-    props: {
-        indicador: {
-            type: Object,
-            required: true
-        },
-        selectedLocalidade: {
-            type: Number,
-            required: false
-        }
+<script setup lang="ts">
+import { Line } from 'vue-chartjs';
+import { Chart, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
+
+// Registra os componentes do Chart.js que serão usados
+Chart.register(Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale);
+
+// Props recebidas pelo componente
+defineProps({
+  indicador: {
+    type: Object,
+    required: true,
+  },
+  selectedLocalidade: {
+    type: String,
+    required: false,
+  },
+});
+
+// Computed para os dados e opções do gráfico
+const chartData = computed(() => ({
+  labels: indicador.valores.map((valor) => formatDate(valor.data)),
+  datasets: [
+    {
+      label: indicador.nomeIndicador,
+      backgroundColor: '#4CAF50',
+      borderColor: '#4CAF50',
+      data: indicador.valores.map((valor) => valor.valor),
+      fill: false,
     },
-    computed: {
-        sortedValores() {
-            // Filtra os valores de acordo com a localidade selecionada e os ordena por data
-            return this.indicador.valoresIndicador
-                .filter(valor => valor.localidade.codigo === this.selectedLocalidade)
-                .sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime());
-        }
+  ],
+}));
+
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: 'Data',
+      },
     },
-    methods: {
-        formatDate(date) {
-            // Formata a data para exibição
-            return new Date(date).toLocaleDateString();
-        }
-    }
+    y: {
+      title: {
+        display: true,
+        text: 'Valor',
+      },
+    },
+  },
+};
+
+// Função para formatar a data
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString();
 };
 </script>
+
+<style scoped>
+.metrics-card {
+  width: 100%;
+  height: 300px;
+}
+</style>

@@ -27,7 +27,7 @@ export interface Indicador {
   valores?: Valor[];
 }
 
-export interface Valor {
+interface Valor {
   data: string;
   valor: number;
 }

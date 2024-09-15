@@ -6,7 +6,7 @@
       <p class="text-sm text-gray-600">Localidade: {{ selectedLocalidade }}</p>
 
       <!-- Gráfico dos valores do indicador -->
-      <LineChart :chart-data="chartData" :chart-options="chartOptions" />
+      <Line :data="chartData" :options="chartOptions" />
 
       <!-- Exibe valores em lista como fallback -->
       <ul>
@@ -24,23 +24,29 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { Line } from 'vue-chartjs';
 import { Chart, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
 
 // Registra os componentes do Chart.js que serão usados
 Chart.register(Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale);
 
-// Props recebidas pelo componente
-defineProps({
-  indicador: {
-    type: Object,
-    required: true,
-  },
-  selectedLocalidade: {
-    type: String,
-    required: false,
-  },
-});
+// Define os tipos para as props
+interface Valor {
+  data: string;
+  valor: number;
+}
+
+interface Indicador {
+  nomeIndicador: string;
+  valores: Valor[];
+}
+
+// Desestruturação das props com tipos
+const { indicador, selectedLocalidade } = defineProps<{
+  indicador: Indicador;
+  selectedLocalidade?: string;
+}>();
 
 // Computed para os dados e opções do gráfico
 const chartData = computed(() => ({

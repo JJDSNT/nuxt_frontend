@@ -50,7 +50,7 @@ Este repositório contém o código do frontend do [ObservaTudo](https://github.
 
 ### Requisitos
 
-- [Node.js](https://nodejs.org/) (versão 14+)
+- [Node.js](https://nodejs.org/) (versão 18.20.4+)
 - [npm](https://www.npmjs.com/)
 
 ### Passo a Passo

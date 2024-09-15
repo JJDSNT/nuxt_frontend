@@ -29,6 +29,7 @@ interface Cidade {
   codigo: number;
   nome: string;
   capital?: boolean;
+  codigoEstado: number; 
 }
 
 interface Estado {
@@ -44,13 +45,19 @@ const infoStore = useInfoStore();
 
 // Computed properties para estado e cidade selecionados no store
 const estadoSelecionadoWatcher = computed({
-  get: () => infoStore.estadoSelecionado || '',
+  get: () => estadoSelecionadoLocal.value || '',
   set: (estado: Estado) => {
-    infoStore.setEstado(estado); // Armazena o objeto completo do estado
-    infoStore.setPais(estado.pais); // Usa o país associado ao estado
-    atualizarCidades(); // Atualiza as cidades quando o estado é selecionado
+    estadoSelecionadoLocal.value = estado;
+    infoStore.setEstado({
+      codigo: estado.codigo,
+      nome: estado.nome,
+      sigla: estado.sigla,
+    }); // Armazena apenas as informações necessárias na store
+    infoStore.setPais(estado.pais);
+    atualizarCidades();
   }
 });
+
 
 const cidadeSelecionadaWatcher = computed({
   get: () => infoStore.cidadeSelecionada || '',
@@ -60,6 +67,7 @@ const cidadeSelecionadaWatcher = computed({
 });
 
 // Lista de estados e cidades filtradas
+const estadoSelecionadoLocal = ref<Estado | null>(null);
 const estados = ref<Estado[]>([]);
 const cidadesFiltradas = ref<Cidade[]>([]);
 const dadosCarregados = ref(false);
@@ -89,16 +97,17 @@ async function carregarDados() {
 
 // Função para atualizar as cidades com base no estado selecionado
 function atualizarCidades() {
-  const estadoSelecionado = infoStore.estadoSelecionado;
+  const estadoSelecionado = estadoSelecionadoLocal.value;
   if (estadoSelecionado) {
     cidadesFiltradas.value = estadoSelecionado.cidades || [];
-    const cidadeCapital = estadoSelecionado.cidades.find(cidade => cidade.capital);
+    const cidadeCapital = estadoSelecionado.cidades.find((cidade: Cidade) => cidade.capital);
     infoStore.setCidade(cidadeCapital || cidadesFiltradas.value[0] || null);
   } else {
     cidadesFiltradas.value = [];
     infoStore.setCidade(null); // Reseta a cidade se nenhum estado for selecionado
   }
 }
+
 
 // Sincronizar dados com a store
 function sincronizarDadosComStore() {

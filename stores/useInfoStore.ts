@@ -1,42 +1,5 @@
 import { defineStore } from "pinia";
-
-// Definição das interfaces
-export interface Pais {
-  codigo: number;
-  nome: string;
-}
-
-export interface Estado {
-  codigo: number;
-  nome: string;
-  sigla: string;
-}
-
-export interface Cidade {
-  codigo: number;
-  nome: string;
-  codigoEstado: number;
-  capital?: boolean;
-}
-
-export interface Indicador {
-  id: number;
-  nome: string;
-  descricao: string;
-  fonte: string | null;
-  eixo: string | null;
-}
-
-export enum Eixos {
-  SAUDE = 1,
-  EDUCACAO = 2,
-  ASSISTENCIA_SOCIAL = 3,
-  SEGURANCA = 4,
-  MEIO_AMBIENTE = 5,
-  ECONOMIA = 6,
-  GOVERNANCA = 7,
-  PERSONALIZADO = 8
-}
+import type { Pais, Estado, Cidade, Eixos } from '~/types/types';
 
 export const useInfoStore = defineStore("info", {
   state: () => ({

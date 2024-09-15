@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const httpClient = axios.create({
-  baseURL: process.env.BASE_URL || "http://localhost:8080/api", // Defina sua URL base aqui
+  baseURL: process.env.BASE_URL ?? "http://localhost:8080/api", // Defina sua URL base aqui
   headers: {
     "Content-Type": "application/json",
   },
@@ -30,7 +30,7 @@ httpClient.interceptors.response.use(
       // Outro erro ocorreu durante a configuração da solicitação
       console.error("Erro ao configurar a solicitação:", error.message);
     }
-    return Promise.reject(error); // Rejeita a promessa para que o erro possa ser tratado em outro lugar
+    return Promise.reject(new Error(error)); // Rejeita a promessa para que o erro possa ser tratado em outro lugar
   }
 );
 

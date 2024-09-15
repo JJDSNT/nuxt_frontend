@@ -8,12 +8,13 @@
       <!-- Gráfico dos valores do indicador -->
       <Line :data="chartData" :options="chartOptions" />
 
-      <!-- Exibe valores em lista como fallback -->
+      <!-- Exibe valores em lista como fallback 
       <ul>
         <li v-for="valor in indicador.valores" :key="valor.data">
           Data: {{ formatDate(valor.data) }}, Valor: {{ valor.valor }}
         </li>
       </ul>
+      -->
     </template>
     <template v-else>
       <!-- Mensagem de dados não disponíveis -->

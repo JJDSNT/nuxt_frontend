@@ -47,9 +47,9 @@ export const useInfoStore = defineStore("info", {
   }),
   getters: {
     // Getter para retornar nome do estado diretamente
-    estadoNome: (state) => state.estadoSelecionado?.nome || 'Não informado',
+    estadoNome: (state) => state.estadoSelecionado?.nome ?? 'Não informado',
     // Getter para retornar nome da cidade diretamente
-    cidadeNome: (state) => state.cidadeSelecionada?.nome || 'Não informado',
+    cidadeNome: (state) => state.cidadeSelecionada?.nome ?? 'Não informado',
   },
   actions: {
     setEixo(eixo: Eixos | null) {

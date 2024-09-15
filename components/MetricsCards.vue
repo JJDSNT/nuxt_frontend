@@ -40,8 +40,19 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import { useNuxtApp } from '#app'; // Para acessar o axios
+import { type AxiosInstance } from 'axios';
 import { useInfoStore } from '~/stores/useInfoStore'; // Use o caminho correto da sua store
 import MetricsCard from './MetricsCard.vue';
+
+interface Valor {
+  data: string;
+  valor: number;
+}
+
+interface Indicador {
+  nomeIndicador: string; // ou 'nome' se for o caso
+  valores: Valor[];
+}
 
 // Usando a store Pinia
 const store = useInfoStore();
@@ -52,9 +63,9 @@ const estadoNome = computed(() => store.estadoSelecionado?.nome || 'Não informa
 const cidadeNome = computed(() => store.cidadeSelecionada?.nome || 'Não informado');
 
 // Arrays para armazenar indicadores por localidade
-const indicadoresPais = ref([]);
-const indicadoresEstado = ref([]);
-const indicadoresCidade = ref([]);
+const indicadoresPais = ref<Indicador[]>([]);
+const indicadoresEstado = ref<Indicador[]>([]);
+const indicadoresCidade = ref<Indicador[]>([]);
 
 // Computed para obter o eixo selecionado
 const eixoSelecionado = computed(() => store.eixoSelecionado);
@@ -62,8 +73,9 @@ const eixoSelecionado = computed(() => store.eixoSelecionado);
 // Função para carregar os indicadores
 async function carregarIndicadores(cidadeId: number) {
   const { $httpClient } = useNuxtApp(); // Acessa o axios
+  const httpClient = $httpClient as AxiosInstance;
   try {
-    const response = await $httpClient.get(`/indicadores/${cidadeId}`);
+    const response = await httpClient.get(`/indicadores/${cidadeId}`);
     if (response.status === 200) {
       console.log('Indicadores carregados com sucesso:', response.data);
       const data = response.data;

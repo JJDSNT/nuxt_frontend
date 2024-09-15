@@ -2,10 +2,6 @@
 
 Este repositório contém o código do frontend do [ObservaTudo](https://github.com/JJDSNT/java_backend), uma aplicação que monitora indicadores através de painéis interativos.
 
-O frontend é desenvolvido em [Nuxt.js](https://nuxtjs.org/) e utiliza o [Tailwind CSS](https://tailwindcss.com/) para estilização.
-
-O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir a qualidade e padrões de código.
-
 ## Tecnologias Utilizadas
 
 - **Nuxt.js**: Framework de desenvolvimento para Vue.js com SSR (Server-Side Rendering) e rotas automáticas, proporcionando uma experiência fluida no desenvolvimento de aplicativos de uma página (SPA) ou renderizados no servidor.
@@ -41,18 +37,21 @@ O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir
 
 - `components/`: Componentes Vue que compõem as interfaces do usuário.
 - `pages/`: Páginas que definem as rotas da aplicação.
-- `plugins/axios.js`: Configuração do plugin Axios para chamadas HTTP.
+- `plugins/`: Plugins que registram bibliotecas e funcionalidades globais e configuram aspectos reutilizáveis em toda a aplicação. 
 - `store/`: Gerenciamento de estado global com Pinia.
 - `assets/`: Arquivos estáticos como imagens e arquivos de estilo.
 - `layouts/`: Layouts da aplicação.
 - `middleware/`: Middlewares de autenticação e proteção de rotas.
+- `public/` : Arquivos estáticos que não precisam de processamento, servidos diretamente no servidor.
+- `composables/` : Funções reutilizáveis baseadas nos Composition API do Vue, que ajudam a compartilhar lógica entre os componentes.
+- `nuxt.config.ts`: Arquivo de configuração principal do Nuxt, onde você define configurações globais, plugins, middlewares e outras opções específicas da aplicação.
 
 ## Instalação
 
 ### Requisitos
 
 - [Node.js](https://nodejs.org/) (versão 14+)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 
 ### Passo a Passo
 
@@ -70,10 +69,7 @@ cd nuxt_frontend
 ```bash
 npm install
 ```
-ou
-```bash
-yarn install
-```
+
 3. Crie um arquivo .env com as seguintes variáveis de ambiente:
 
 ```bash
@@ -84,19 +80,14 @@ API_BASE_URL=http://localhost:8080/api
 ```bash
 npm run dev
 ```
-ou
-```bash
-yarn dev
-```
 
 O frontend estará disponível em http://localhost:3000.
 
 
-
 ## Estrutura das Páginas
-/dashboard: Painel principal com a visão geral dos indicadores.
+/ :Painel principal com a visão geral dos indicadores.
 
-/pesquisa: Página para pesquisar indicadores por eixo, fonte ou nome.
+/pesquisa :Página para pesquisar indicadores por eixo, fonte ou nome.
 
 ## Estilização
 

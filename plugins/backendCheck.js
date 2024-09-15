@@ -3,7 +3,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     try {
       // Obtém a baseURL da configuração de ambiente usando useRuntimeConfig
       const { public: { BASE_URL } } = useRuntimeConfig();
-      const baseURL = BASE_URL || "http://localhost:8080/api";
+      const baseURL = typeof BASE_URL === 'string' && BASE_URL.trim() !== '' ? BASE_URL : "http://localhost:8080/api";
       const url = `${baseURL}/health-check`;
 
       // Loga a URL antes de fazer a requisição

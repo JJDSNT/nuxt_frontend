@@ -8,10 +8,10 @@ O código é analisado por [SonarQube](https://www.sonarqube.org/) para garantir
 
 ## Tecnologias Utilizadas
 
-- **Nuxt.js**: Framework de desenvolvimento para Vue.js com SSR (Server-Side Rendering) e rotas automáticas.
-- **Tailwind CSS**: Um framework CSS para estilização rápida e eficiente.
-- **Axios**: Biblioteca para requisições HTTP.
-- **SonarQube**: Ferramenta para análise estática de código, medindo a qualidade do código, cobertura de testes, segurança e mais.
+- **Nuxt.js**: Framework de desenvolvimento para Vue.js com SSR (Server-Side Rendering) e rotas automáticas, proporcionando uma experiência fluida no desenvolvimento de aplicativos de uma página (SPA) ou renderizados no servidor.
+- **Pinia**: Sistema de gerenciamento de estado para Vue.js, oferecendo uma alternativa simples e moderna ao Vuex, com suporte a TypeScript e integração nativa com Vue 3, possibilitando a centralização e o compartilhamento de estados entre componentes.
+- **DaisyUI**: Uma biblioteca de componentes para Tailwind CSS que simplifica a criação de interfaces de usuário com componentes pré-estilizados, facilitando a construção de UIs consistentes e personalizáveis.
+
 
 ## SonarQube
 

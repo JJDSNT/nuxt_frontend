@@ -15,7 +15,7 @@ import { ref, onMounted } from 'vue';
 import { useNuxtApp } from '#app';
 import { useInfoStore } from '@/stores/useInfoStore';
 import type { AxiosInstance } from 'axios';
-import { Eixos } from '@/stores/useInfoStore'; // Importa o enum de Eixos
+import { Eixos } from '@/types/types'; // Importa o enum de Eixos
 
 // Função para converter ícones para kebab-case
 const toKebabCase = (str: string) => {
